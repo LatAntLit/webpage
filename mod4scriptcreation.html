@@ -1,0 +1,58 @@
+// Function to verify valid service quality
+function isValidServiceQuality(quality) {
+    return quality === 'great' || quality === 'ok' || quality === 'poor';
+}
+
+// Function to verify valid service amount
+function isValidServiceAmount(amount) {
+    return !isNaN(amount) && amount >= 5.00 && amount <= 500.00;
+}
+
+// Function to calculate tip amount
+function calculateTip(serviceAmount, serviceQuality) {
+    let tipPercentage;
+
+    switch (serviceQuality) {
+        case 'great':
+            tipPercentage = 0.20;
+            break;
+        case 'ok':
+            tipPercentage = 0.15;
+            break;
+        case 'poor':
+            tipPercentage = 0.10;
+            break;
+        default:
+            // This should not happen due to earlier validation, but handle it just in case
+            return null;
+    }
+
+    return serviceAmount * tipPercentage;
+}
+
+// Prompt the user to enter the dollar amount of the service
+var serviceAmount = prompt("Enter the dollar amount of the service:");
+
+// Validate service amount
+if (!isValidServiceAmount(serviceAmount)) {
+    alert("Invalid service amount. Please enter a valid amount between $5.00 and $500.00.");
+} else {
+    // Ask if the service quality was great, ok, or poor
+    var serviceQuality = prompt("How was the service quality? (great/ok/poor)").toLowerCase();
+
+    // Validate service quality
+    if (!isValidServiceQuality(serviceQuality)) {
+        alert("Invalid service quality. Please enter great, ok, or poor.");
+    } else {
+        // Calculate tip amount
+        var tipAmount = calculateTip(parseFloat(serviceAmount), serviceQuality);
+
+        // Display the result to the user
+        if (tipAmount !== null) {
+            alert("For a service amount of $" + serviceAmount.toFixed(2) +
+                ", the recommended tip based on " + serviceQuality + " service is $" + tipAmount.toFixed(2) + ".");
+        } else {
+            alert("An error occurred while calculating the tip. Please try again.");
+        }
+    }
+}
