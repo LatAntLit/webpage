@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Program</title>
+</head>
+<body>
+
+<!-- Embedded JavaScript code -->
+<script>
+    // Task 1: Display whether each count in the for loop is odd or even
+
+    document.write("<h2>Task 1: Odd or Even</h2>");
+    for (let count = 0; count <= 10; count++) {
+        if (count % 2 === 0) {
+            document.write(`Count ${count} is even<br>`);
+        } else {
+            document.write(`Count ${count} is odd<br>`);
+        }
+    }
+
+    // Task 2: Use a Do While loop to display the loop counter until it equals the value of myNum
+
+    document.write("<h2>Task 2: Do While Loop</h2>");
+    var myNum = prompt("Enter a number between 5 and 20:");
+    myNum = parseInt(myNum);
+
+    var loopCounter = 1;
+    do {
+        document.write(`Loop Counter: ${loopCounter}<br>`);
+        loopCounter++;
+    } while (loopCounter <= myNum);
+
+    // Task 3: Display array values using foreach()
+
+    document.write("<h2>Task 3: Array Values</h2>");
+    var subjects = ["Accounting", "Algebra", "Programming", "Art", "Data Analytics"];
+
+    // Display the array values in a readable format using foreach()
+    document.write("<p>Subjects:</p>");
+    subjects.forEach(function(subject) {
+        document.write(`<p>${subject}</p>`);
+    });
+
+    // Display the array values separated by commas using one statement
+    document.write("<p>Subjects (comma-separated):</p>");
+    document.write(subjects.join(", "));
+</script>
+
+</body>
+</html>
