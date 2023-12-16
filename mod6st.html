@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dog Information</title>
+</head>
+<body>
+
+<script>
+  // Constructor function to define the dog object
+  function Dog(name, breed, color, gender, owner, debut, canTalk) {
+    this.name = name;
+    this.breed = breed;
+    this.color = color;
+    this.gender = gender;
+    this.owner = owner;
+    this.debut = debut;
+    this.canTalk = canTalk;
+
+    // Method to display a greeting message
+    this.myGreeting = function () {
+      return this.canTalk ? `${this.name} says: I can talk!` : `${this.name} says: I cannot talk.`;
+    };
+  }
+
+  // Create two new dog objects using the constructor
+  var dog1 = new Dog("Pluto", "Bloodhound", "Orange", "Male", "Walt Disney", "The Chain Gang (1930)", false);
+
+  var dog2 = new Dog("Bolt", "White Shepherd", "White", "Male", "John Lasseter", "Bolt (2008)", true);
+
+  // Display properties of each dog using a for...in loop
+  function displayDogInfo(dog) {
+    for (var property in dog) {
+      if (dog.hasOwnProperty(property)) {
+        console.log(`${property}: ${dog[property]}`);
+      }
+    }
+  }
+
+  // Prompt the user to select a dog
+  var userChoice = prompt("Select a dog by typing its name (e.g., Pluto or Bolt):");
+
+  // Check if the user's choice matches a dog
+  if (userChoice.toLowerCase() === dog1.name.toLowerCase()) {
+    // Display information for the selected dog
+    document.write(`<p>${dog1.myGreeting()}</p>`);
+    displayDogInfo(dog1);
+  } else if (userChoice.toLowerCase() === dog2.name.toLowerCase()) {
+    // Display information for the selected dog
+    document.write(`<p>${dog2.myGreeting()}</p>`);
+    displayDogInfo(dog2);
+  } else {
+    // Display an error message if the selected dog doesn't exist
+    document.write("<p>Error: The selected dog does not exist.</p>");
+  }
+</script>
+
+</body>
+</html>
