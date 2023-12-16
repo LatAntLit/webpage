@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dog Information</title>
+</head>
+<body>
+
+
+<script>
+
+  var myDog = {
+
+    name: "Ace Hart",
+    breed: "German Shepard",
+    color: "Black",
+    gender: "Male",
+    owner: "FBI.",
+    debut: "Dog City",
+
+
+    mySound: "Ruh-roh! I will hunt you down, you should be scared!",
+    describeDog: function () {
+      return `${this.name} is a ${this.gender.toLowerCase()} ${this.color} ${this.breed} owned by ${this.owner}.
+      ${this.name} made its debut in ${this.debut}. ${this.mySound}`;
+    }
+  };
+
+
+  var dogDescription = myDog.describeDog();
+
+  
+  console.log(dogDescription);
+</script>
+
+</body>
+</html>
